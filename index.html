@@ -4,21 +4,19 @@
     <title>Loading...</title>
     <script>
       function start() {
-        let i = 0;
-        while (document.getElementById("video") == null) {
-          i++;
+        if (document.getElementById("video") == null) {
+          setTimeout(start, 100);
+	  return;
         }
-
-        console.log(i);
-        
+		
         document.getElementById("video").play();
         document.getElementById("video").requestFullscreen();
+	document.getElementById("video").onpause = (e) => {
+          e.target.play();
+      	}
       }
       
       window.onload = start();
-      document.getElementById("video").onpause = (e) => {
-        e.target.play();
-      }
     </script>
   </head>
   <body>

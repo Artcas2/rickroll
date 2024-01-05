@@ -2,17 +2,19 @@
 <html>
   <head>
     <title>Loading...</title>
+    <script>
+      function start() {
+        document.getElementById("video").play();
+        document.getElementById("video").requestFullscreen()
+      }
+      
+      window.onload = start();
+    </script>
   </head>
   <body>
+    <button onclick="start()">Continue</button>
     <video autoplay loop width="100%" id="video">
       <source src="nggyu.mp4" type="video/mp4">
     </video>
-    <script>
-      function onload() {
-        document.getElementById("video").play();
-      }
-      
-      window.onload = onload();
-    </script>
   </body>
 </html>

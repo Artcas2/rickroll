@@ -4,16 +4,26 @@
     <title>Loading...</title>
     <script>
       function start() {
+        let i = 0;
+        while (document.getElementById("video") == null) {
+          i++;
+        }
+
+        console.log(i);
+        
         document.getElementById("video").play();
-        document.getElementById("video").requestFullscreen()
+        document.getElementById("video").requestFullscreen();
       }
       
       window.onload = start();
+      document.getElementById("video").onpause = (e) => {
+        e.target.play();
+      }
     </script>
   </head>
   <body>
     <button onclick="start()">Continue</button>
-    <video autoplay loop width="100%" id="video">
+    <video autoplay style="height: 90vh" id="video" controls>
       <source src="nggyu.mp4" type="video/mp4">
     </video>
   </body>

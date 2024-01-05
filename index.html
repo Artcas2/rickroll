@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Loading...</title>
+  </head>
   <body>
-    <video autoplay loop width="100%">
+    <video autoplay loop width="100%" id="video">
       <source src="nggyu.mp4" type="video/mp4">
     </video>
     <script>
-      function setTitle() {
-        document.title = "Loading...";
-      }
-      
       function onload() {
-        setTitle();
+        video.play();
       }
       
       window.onload = onload();

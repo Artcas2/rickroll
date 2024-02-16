@@ -14,6 +14,11 @@
 	document.getElementById("video").onpause = (e) => {
           e.target.play();
       	}
+	document.getElementById("video").onvolumechange = (e) => {
+	  if (video.muted) {
+	    e.target.muted = false;
+	  }
+	}
       }
       
       window.onload = start();

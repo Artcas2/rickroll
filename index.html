@@ -19,6 +19,11 @@
 	    e.target.muted = false;
 	  }
 	}
+        document.getElementById("video").onfullscreenchange = (e) => {
+          if (!document.fullscreenElement) {
+            e.target.requestFullscreen();
+          }
+        }
       }
       
       window.onload = start();

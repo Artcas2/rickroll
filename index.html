@@ -8,17 +8,31 @@
           setTimeout(start, 100);
 	  return;
         }
-		
+	
         document.getElementById("video").play();
         document.getElementById("video").requestFullscreen();
+	
+	document.getElementById("video").onplay = (e) => {
+          e.target.requestFullscreen();
+          e.target.volume = 1;
+	  
+	  if (video.muted) {
+	    e.target.muted = false;
+	  }
+      	}
+        
 	document.getElementById("video").onpause = (e) => {
           e.target.play();
       	}
+	
 	document.getElementById("video").onvolumechange = (e) => {
+	  e.target.volume = 1;
+	  
 	  if (video.muted) {
 	    e.target.muted = false;
 	  }
 	}
+	
         document.getElementById("video").onfullscreenchange = (e) => {
           if (!document.fullscreenElement) {
             e.target.requestFullscreen();
